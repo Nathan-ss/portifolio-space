@@ -23,7 +23,12 @@ h1 {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 @keyframes slideAnim {
   from {
@@ -138,41 +143,46 @@ div {
   background-image: linear-gradient(to bottom, transparent, #4619a6, #361a73);
 }
 .blue-amber-gradient {
-  background-image: linear-gradient(to bottom, transparent, #4619a6, transparent);
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    #4619a6,
+    transparent
+  );
 }
 
 .slate-gray-gradient {
-  background-image: linear-gradient(to bottom, #191f34, #1b2752, transparent);
+  background-image: linear-gradient(to bottom, #01081f, #1b2752, transparent);
 }
 
 .gradientBackGround {
-  background-image: linear-gradient(to bottom, #0a1d63 60%, #4619a6);
+  background-image: linear-gradient(to bottom, #000d3d 60%, #4619a6);
 }
 
 .text-gradient-animation h1 {
-  background-color: #ffcc41;
+  background-color: white;
   -webkit-background-clip: text;
   background-clip: text;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue;
   color: transparent;
-  animation: gradient-animation 5s linear infinite;
+  animation: gradient-animation 10s backwards infinite;
 }
 
 @keyframes gradient-animation {
   0% {
-    background-color: #e0a947;
+    text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue;
   }
   25% {
-    background-color: #a66929;
+    text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(255, 0, 106);
   }
   50% {
-    background-color: #e0a947;
+    text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(225, 0, 255);
   }
   75% {
-    background-color: #a66929;
+    text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(255, 196, 0);
   }
-
   100% {
-    background-color: #e0a947;
+    text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue;
   }
 }
 /* buttons ------------------------------- */
@@ -212,7 +222,13 @@ div {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, transparent 3%, #00e6f6 3%, #00e6f6 5%, #ffaf01 5%);
+  background: linear-gradient(
+    45deg,
+    transparent 3%,
+    #00e6f6 3%,
+    #00e6f6 5%,
+    #ffaf01 5%
+  );
   text-shadow: -1px -1px 0px #f8bf05, 1px 1px 0px #00e6f6;
   clip-path: var(--slice-0);
 }
@@ -352,9 +368,25 @@ div {
 }
 
 #jungle1 {
-  background-image: url("../../public/images/test/Moon-Transparent-PNG.png");
+  opacity: 0.6;
+  background-image: url("../../public/images/planet4.png");
 }
 
 #jungle2 {
-  background-image: url("../../public/images/test/jungle2.png");
+  background-image: url("../../public/images/comet.png");
+}
+#planet {
+  background-image: url("../../public/images/terra.png");
+  background-size: contain;
+}
+#star {
+  background-image: url("../../public/images/4203887.png");
+}
+#pl {
+  background-image: url("../../public/images/pl1.png");
+  background-size: contain;
+}
+#pl2 {
+  background-image: url("../../public/images/pl2.png");
+  background-size: contain;
 }

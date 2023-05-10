@@ -1,10 +1,24 @@
 import { title } from "process";
 import React from "react";
 
-export const LoopingAnimation = ({ opacity, word }: { opacity?: number; word: string }) => {
+export const LoopingAnimation = ({
+  opacity,
+  word,
+}: {
+  opacity?: number;
+  word: string;
+}) => {
   const { useState, useEffect, useRef, useCallback } = React;
 
-  const InfiniteLooper = function InfiniteLooper({ speed, direction, children }: { speed: number; direction: "right" | "left"; children: React.ReactNode }) {
+  const InfiniteLooper = function InfiniteLooper({
+    speed,
+    direction,
+    children,
+  }: {
+    speed: number;
+    direction: "right" | "left";
+    children: React.ReactNode;
+  }) {
     const [looperInstances, setLooperInstances] = useState(1);
     const outerRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
@@ -33,7 +47,9 @@ export const LoopingAnimation = ({ opacity, word }: { opacity?: number; word: st
       const instanceWidth = width / innerRef.current.children.length;
 
       if (widthDeficit) {
-        setLooperInstances(looperInstances + Math.ceil(widthDeficit / instanceWidth) + 1);
+        setLooperInstances(
+          looperInstances + Math.ceil(widthDeficit / instanceWidth) + 1
+        );
       }
 
       resetAnimation();
@@ -63,7 +79,8 @@ export const LoopingAnimation = ({ opacity, word }: { opacity?: number; word: st
               className="looper__listInstance"
               style={{
                 animationDuration: `${speed}s`,
-                animationDirection: direction === "right" ? "reverse" : "normal",
+                animationDirection:
+                  direction === "right" ? "reverse" : "normal",
               }}
             >
               {children}
@@ -77,7 +94,11 @@ export const LoopingAnimation = ({ opacity, word }: { opacity?: number; word: st
   return (
     <div className="app ">
       <InfiniteLooper speed={30} direction="right">
-        <div className={`font-extrabold text-transparent bg-clip-text italic bg-white opacity-${opacity}`}>{word}</div>
+        <div
+          className={`font-extrabold text-transparent bg-clip-text italic bg-white opacity-${opacity} text-7xl`}
+        >
+          {word}
+        </div>
       </InfiniteLooper>
     </div>
   );
