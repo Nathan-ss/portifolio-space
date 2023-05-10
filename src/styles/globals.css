@@ -2,12 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://rsms.me/inter/inter.css");
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
-
+h1 {
+  font-size: 10rem;
+  font-weight: bolder;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -18,10 +23,338 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+@keyframes slideAnim {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.looper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.looper__innerList {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+}
+
+.looper__innerList[data-animate="true"] .looper__listInstance {
+  animation: slideAnim linear infinite;
+}
+
+.looper__listInstance {
+  display: flex;
+  width: max-content;
+
+  animation: none;
+}
+
+/* Example content styles */
+:root {
+  --green: #59c3c3;
+  --offwhite: #ebebeb;
+  --red: #e65a5e;
+}
+html {
+  height: 100%;
+}
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: transparent orange;
+}
+
+/* Works on Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e0a947;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  border-radius: 0px;
+  background-position: bottom;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-position: top;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+body {
+  cursor: none;
+}
+div {
+  color: white;
+}
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
+}
+
+.gray-blue-gradient {
+  background-image: linear-gradient(to bottom, transparent, #4619a6, #361a73);
+}
+.blue-amber-gradient {
+  background-image: linear-gradient(to bottom, transparent, #4619a6, transparent);
+}
+
+.slate-gray-gradient {
+  background-image: linear-gradient(to bottom, #191f34, #1b2752, transparent);
+}
+
+.gradientBackGround {
+  background-image: linear-gradient(to bottom, #0a1d63 60%, #4619a6);
+}
+
+.text-gradient-animation h1 {
+  background-color: #ffcc41;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-animation 5s linear infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-color: #e0a947;
+  }
+  25% {
+    background-color: #a66929;
+  }
+  50% {
+    background-color: #e0a947;
+  }
+  75% {
+    background-color: #a66929;
+  }
+
+  100% {
+    background-color: #e0a947;
+  }
+}
+/* buttons ------------------------------- */
+
+/* CSS */
+.button-49,
+.button-49:after {
+  width: 150px;
+  height: 76px;
+  line-height: 78px;
+  font-size: 20px;
+  font-family: "Bebas Neue", sans-serif;
+
+  border: 0;
+  color: #fff;
+  letter-spacing: 3px;
+
+  outline: transparent;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-49:after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+
+  content: "ALTERNATE TEXT";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, #00e6f6 3%, #00e6f6 5%, #ffaf01 5%);
+  text-shadow: -1px -1px 0px #f8bf05, 1px 1px 0px #00e6f6;
+  clip-path: var(--slice-0);
+}
+
+.button-49:hover:after {
+  animation: 2s glitch;
+  animation-timing-function: steps(2, end);
+}
+.button-49:hover {
+  color: #f8bf05;
+}
+
+.button-49:active {
+  font-size: 15px;
+  color: #00e6f6;
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, -5px);
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 5px);
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-5px, 5px);
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 2px);
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-2px, 0px);
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(2px, 0px);
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(2px, 5px);
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 5px);
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(10px, -5px);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .button-49,
+  .button-49:after {
+    width: 100px;
+    height: 56px;
+    line-height: 48px;
+  }
+}
+
+#textblock {
+  background-color: #210002;
+  height: 100vh;
+}
+
+#textblock-container {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 70px;
+}
+
+#textblock-title {
+  color: #ffaf1b;
+  font-size: 35px;
+  font-weight: 600;
+  font-family: "Helvetica Neue";
+}
+
+#textblock-content {
+  color: #ffaf1b;
+  font-size: 20px;
+}
+
+#textblock-footer {
+  color: #ffaf1b;
+  font-size: 15px;
+  font-weight: 400;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#textblock-devsense {
+  text-decoration: none;
+  color: #ffaf1b;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.animation,
+.animation_layer {
+  height: 1000px;
+}
+
+.animation {
+  display: block;
+  position: relative;
+  z-index: 10;
+}
+
+.animation_layer {
+  background-position: bottom center;
+  background-size: auto 1038px;
+  background-repeat: repeat-x;
+  width: 100%;
+  position: absolute;
+}
+.animation_layer.parallax {
+  position: fixed;
+}
+
+#jungle1 {
+  background-image: url("../../public/images/test/Moon-Transparent-PNG.png");
+}
+
+#jungle2 {
+  background-image: url("../../public/images/test/jungle2.png");
 }

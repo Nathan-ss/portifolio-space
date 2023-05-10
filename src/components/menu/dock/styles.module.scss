@@ -1,0 +1,21 @@
+.dock {
+  position: fixed;
+  bottom: 12px;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: flex-end;
+  height: 58px;
+  display: flex;
+  padding: 12px;
+
+  gap: 2px;
+
+  box-shadow: inset 0 0 25px 5px #0a1d63;
+  border: 1px solid rgb(255, 255, 255);
+  will-change: contents;
+  box-sizing: content-box;
+  border-radius: 12px;
+  transform-origin: center bottom;
+}
