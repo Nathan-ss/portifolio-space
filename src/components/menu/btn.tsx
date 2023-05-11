@@ -1,15 +1,53 @@
-export const ButtonMenu = ({ text }: { text: string }) => {
+import { IoIosRocket } from "react-icons/io";
+export const ButtonMenu = ({
+  text,
+  to,
+}: {
+  text: string;
+  to: React.Dispatch<React.SetStateAction<number | null>>;
+}) => {
   return (
     <a
-      href="#_"
-      className="relative px-5 py-3 overflow-hidden font-medium text-amber-500 bg-gray-100 border border-gray-100 rounded-lg shadow-inner group hover:-translate-y-2 transition duration-300 ease-in-out active:-scale-50"
+      onClick={() => {
+        text == "Projects"
+          ? to(0)
+          : text == "Skills"
+          ? to(1)
+          : text == "Contact"
+          ? to(2)
+          : null;
+      }}
+      className="
+      box-border 
+      relative 
+      z-30 
+      inline-flex 
+      items-center 
+      justify-center 
+      w-auto 
+      px-8 
+      py-3 
+      overflow-hidden 
+      font-bold 
+      text-white 
+      transition-all 
+      duration-300 
+      bg-indigo-600 
+      rounded-md 
+      cursor-pointer 
+      group ring-offset-2 ring-1 ring-indigo-300 ring-offset-indigo-200 
+      hover:ring-offset-indigo-500 ease focus:outline-none 
+      hover:-translate-y-2  ease-in-out active:bg-violet-600"
     >
-      <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-purple-500 group-hover:w-full ease"></span>
-      <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 bg-pink-500 group-hover:w-full ease"></span>
-      <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-indigo-500 group-hover:h-full ease"></span>
-      <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-purple-500  blur-md group-hover:h-full ease"></span>
-      <span className="absolute inset-0 w-full h-full duration-300 delay-300 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 blur-md opacity-0 group-hover:opacity-100"></span>
-      <span className="relative justify-center text-center flex transition-colors duration-300 delay-200 group-hover:text-white ease">{text}</span>
+      <span className="absolute bottom-0 right-0 w-8 h-20 -mb-8 -mr-5 transition-all duration-300 ease-out transform rotate-45 translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
+      <span className="absolute top-0 left-0 w-20 h-8 -mt-1 -ml-12 transition-all duration-300 ease-out transform -rotate-45 -translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
+      <span className="relative z-20 flex items-center text-sm gap-2">
+        <IoIosRocket className="text-2xl" />
+
+        {text}
+      </span>
     </a>
   );
 };
+
+//group hover:-translate-y-2 transition duration-300 ease-in-out active:-scale-50

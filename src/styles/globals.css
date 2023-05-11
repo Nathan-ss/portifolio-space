@@ -367,9 +367,23 @@ div {
   position: fixed;
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation-duration: 15s; /* Ajuste a duração da animação aqui */
+}
 #jungle1 {
   opacity: 0.6;
-  background-image: url("../../public/images/planet4.png");
+  width: 100%;
+  background: url("../../public/images/planet4.png") no-repeat;
+  background-size: cover;
 }
 
 #jungle2 {
@@ -388,5 +402,9 @@ div {
 }
 #pl2 {
   background-image: url("../../public/images/pl2.png");
+  background-size: contain;
+}
+#rocks {
+  background-image: url("../../public/images/rocks.png");
   background-size: contain;
 }
