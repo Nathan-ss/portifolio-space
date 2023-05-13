@@ -43,7 +43,7 @@ export function Second() {
 
       <div className="w-2/3 pl-10">
         <div className="text-gradient-animation">
-          <h1 className="text-7xl">Second Text.</h1>
+          <h1 className="text-7xl">Projects</h1>
         </div>
         <br />
         <h4>

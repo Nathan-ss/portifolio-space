@@ -30,6 +30,7 @@ export default function Home() {
       parallax.current.scrollTo(to);
     }
   }, [to]);
+
   return (
     <div id="paralax">
       <Cursor />

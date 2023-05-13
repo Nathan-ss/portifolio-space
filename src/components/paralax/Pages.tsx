@@ -20,19 +20,45 @@ export const Page1 = ({ scroll }: { scroll: number }) => {
     from: { opacity: 0, y: -100 },
   });
 
-  const animate = useCallback(() => {
-    api.start({
-      to: {
-        opacity: 1,
-        y: 0,
-      },
-    });
-  }, [api]);
+  const Meteor = useSpringRef();
+  const MeteorAnimation = useSpring({
+    ref: Meteor,
+    from: { x: 0, y: -200 },
+    delay: 20,
+  });
+
+  const animateMeteor = useCallback(
+    (scroll: number) => {
+      Meteor.start({
+        to: {
+          x: 100 - scroll,
+          y: scroll - 200,
+        },
+      });
+    },
+    [Meteor]
+  );
+
+  const animate = useCallback(
+    (n: number) => {
+      api.start({
+        to: {
+          opacity: n,
+          y: 0,
+        },
+      });
+    },
+    [api]
+  );
 
   useEffect(() => {
-    if (parseInt(scroll.toString()) < 400) {
-      animate();
+    if (parseInt(scroll.toString()) < 450) {
+      animate(1);
     }
+    if (parseInt(scroll.toString()) > 600) {
+      animate(0);
+    }
+    animateMeteor(scroll);
   }, [animate, scroll]);
 
   return (
@@ -57,7 +83,13 @@ export const Page1 = ({ scroll }: { scroll: number }) => {
         <div className="animation_layer parallax mt-5/6" id="jungle1"></div>
       </ParallaxLayer>
       <ParallaxLayer offset={0} speed={0.4}>
-        <div className="animation_layer parallax mt-5/6" id="jungle2"></div>
+        <animated.div
+          style={{
+            ...MeteorAnimation,
+          }}
+        >
+          <div className="animation_layer parallax mt-5/6" id="jungle2"></div>
+        </animated.div>
       </ParallaxLayer>
       <ParallaxLayer offset={0} speed={0.2} className="">
         <div className="bg-gradient-to-b from-black 60% ...  opacity-50 w-full h-full" />
@@ -97,7 +129,7 @@ export const Page2 = ({ scroll }: { scroll: number }) => {
   });
   const showLeft = useSpring({
     ref: api2,
-    from: { x: 0, y: 0, opacity: 100 },
+    from: { x: -600, opacity: 0 },
   });
 
   const animate = useCallback(
@@ -112,9 +144,29 @@ export const Page2 = ({ scroll }: { scroll: number }) => {
     },
     [api]
   );
+  const animateShowLeft = useCallback(
+    (scroll: number, x: number, opacity: 1 | 0) => {
+      api2.start({
+        to: {
+          x: x,
+          opacity: opacity,
+        },
+      });
+    },
+    [api]
+  );
 
   useEffect(() => {
     animate(scroll);
+    if (scroll > 450 && scroll < 1400) {
+      animateShowLeft(scroll, 0, 1);
+    }
+    if (scroll < 400) {
+      animateShowLeft(scroll, 600, 0);
+    }
+    if (scroll > 1400) {
+      animateShowLeft(scroll, 600, 0);
+    }
   }, [animate, scroll]);
   return (
     <>
@@ -144,9 +196,9 @@ export const Page2 = ({ scroll }: { scroll: number }) => {
       </ParallaxLayer>
       <ParallaxLayer offset={1} speed={0.1}>
         <animated.div
-        // style={{
-        //   ...showLeft,
-        // }}
+          style={{
+            ...showLeft,
+          }}
         >
           <div className="flex  justify-center px-4">
             <div className="w-full">
