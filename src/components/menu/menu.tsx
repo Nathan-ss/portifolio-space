@@ -5,7 +5,7 @@ import { Dock } from "./dock";
 import styles from "./styles.module.scss";
 import { AiOutlineGithub } from "react-icons/ai";
 import { RiLinkedinFill } from "react-icons/ri";
-import { BsFillArrowUpSquareFill } from "react-icons/bs";
+import { IoLogoWhatsapp } from "react-icons/io";
 
 import { ButtonMenu } from "./btn";
 interface MenuProps {
@@ -16,17 +16,15 @@ export default function Menu({ to }: MenuProps) {
   return (
     <div className={styles.body}>
       <Dock>
-        <div className="flex justify-center items-center gap-3">
-          <ButtonMenu text="Projects" to={to} />
-          <ButtonMenu text="Skills" to={to} />
-          <ButtonMenu text="Contact" to={to} />
+        <div className="flex w-3/4 justify-center items-center gap-3">
+          <ButtonMenu text="Inicio" to={to} />
+          <ButtonMenu text="Projetos" to={to} />
+          <ButtonMenu text="Contato" to={to} />
 
-          <div className="w-1/3 text-2xl font-bold flex gap-2">
+          <div className="w-1/4 text-2xl font-bold flex gap-2 justify-center">
             <div className="border-2 rounded-full border-l-2 border-white mx-2 "></div>
             <RiLinkedinFill />
             <AiOutlineGithub />
-            <div className="border-2 rounded-full border-l-2 border-white mx-2 "></div>
-            <BsFillArrowUpSquareFill />
           </div>
         </div>
       </Dock>

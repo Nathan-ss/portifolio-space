@@ -1,8 +1,7 @@
 .dock {
   position: fixed;
   bottom: 12px;
-  justify-content: center;
-  align-items: center;
+
   left: 50%;
   transform: translateX(-50%);
   align-items: center;
@@ -10,6 +9,8 @@
   display: flex;
   padding: 12px;
   display: flex;
+  justify-content: center;
+  align-items: center;
 
   gap: 2px;
 
