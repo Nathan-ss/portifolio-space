@@ -5,7 +5,12 @@ import Entry, { Second } from "../Entry";
 import { useCallback, useEffect } from "react";
 import First from "../Entry";
 
-const url = (name: string, wrap = false) => `${wrap ? "url(" : ""}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ")" : ""}`;
+const url = (name: string, wrap = false) =>
+  `${
+    wrap ? "url(" : ""
+  }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
+    wrap ? ")" : ""
+  }`;
 //bg-gradient-to-b from-gray-900 from-40%  via-blue-800 via-2%  to-slate-500 to-5%
 
 export const Page1 = ({ scroll }: { scroll: number }) => {
@@ -98,7 +103,11 @@ export const Page1 = ({ scroll }: { scroll: number }) => {
           <div className="flex  justify-center px-4" id="#Projects">
             <div className="w-3/6 justify-center items-center hidden md:none lg:flex ">
               <div className=" active:scale-100 duration-100000 hover:scale-110 transition duration-300 ease-in-out pt-20 pr-10 flex justify-start items-center h-full ">
-                <img src={"./images/astronauta.png"} style={{ width: "100%" }} className="floating" />
+                <img
+                  src={"./images/astronauta.png"}
+                  style={{ width: "100%" }}
+                  className="floating"
+                />
               </div>
             </div>
             <div className="w-full">
@@ -219,7 +228,10 @@ export const Page2 = ({ scroll }: { scroll: number }) => {
 export const Page3 = ({ scroll }: { scroll: number }) => (
   <>
     <ParallaxLayer offset={2} speed={2.3}>
-      <img src={url("satellite4")} style={{ width: "15%", marginLeft: "70%" }} />
+      <img
+        src={url("satellite4")}
+        style={{ width: "15%", marginLeft: "70%" }}
+      />
     </ParallaxLayer>
     <ParallaxLayer offset={2} speed={2.5}>
       <div className="animation_layer parallax mt-5/6" id="planet"></div>

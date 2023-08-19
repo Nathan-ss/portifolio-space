@@ -66,7 +66,7 @@ export default function Home() {
           <Page2 scroll={scroll} />
           <Page3 scroll={scroll} />
         </Parallax>
-        <Menu to={setTo} />
+        {/* <Menu to={setTo} /> */}
       </div>
     </div>
   );
